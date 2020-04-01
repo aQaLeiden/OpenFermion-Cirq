@@ -79,7 +79,7 @@ class VariationalStudy:
                  target: Optional[float]=None,
                  black_box_type: Type[
                      variational_black_box.VariationalBlackBox]=
-                     variational_black_box.UNITARY_SIMULATE,
+                     variational_black_box.UNITARY_SIMULATE_STATEFUL,
                  datadir: Optional[str]=None) -> None:
         """
         Args:
@@ -258,8 +258,8 @@ class VariationalStudy:
                         use_multiprocessing,
                         num_processes)
 
-                trial_result = OptimizationTrialResult(result_list,
-                                                       optimization_params)
+                trial_result = result_list#OptimizationTrialResult(result_list,
+                              #                         optimization_params)
                 trial_results.append(trial_result)
 
                 # Save the result into the trial_results dictionary
@@ -517,7 +517,10 @@ class VariationalStudy:
     def num_params(self) -> int:
         """The number of parameters of the ansatz."""
         return len(list(self.ansatz.params()))
-
+    
+    def check(self) -> int:
+        return self.ansatz.params()
+    
     def value_of(self,
                  params: numpy.ndarray) -> float:
         """Determine the value of some parameters."""
