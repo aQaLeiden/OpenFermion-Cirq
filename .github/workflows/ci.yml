@@ -78,7 +78,6 @@ jobs:
       - name: Install requirements
         run: |
           pip install -r requirements.txt
-          python -m pip install -r cirq/contrib/contrib-requirements.txt
           pip install -r dev_tools/conf/pip-list-dev-tools.txt
       - name: Doc check
         run: check/doctest -q
@@ -97,7 +96,7 @@ jobs:
           pip install -r dev_tools/conf/pip-list-dev-tools.txt
           git config --global user.name ${GITHUB_ACTOR}
       - name: Pytest check
-        run: check/pytest --ignore=cirq/contrib --benchmark-skip --actually-quiet
+        run: check/pytest --actually-quiet
   # Uncomment once docs are implemented
   # build_docs:
   #   name: Build docs
@@ -111,7 +110,6 @@ jobs:
   #     - name: Install requirements
   #       run: |
   #         pip install -r requirements.txt
-  #         pip install -r cirq/contrib/contrib-requirements.txt
   #         pip install -r dev_tools/conf/pip-list-dev-tools.txt
   #         sudo apt-get install pandoc
   #     - name: Build docs
@@ -128,7 +126,6 @@ jobs:
       - name: Install requirements
         run: |
           pip install -r requirements.txt
-          pip install -r cirq/contrib/contrib-requirements.txt
           pip install -r dev_tools/conf/pip-list-dev-tools.txt
           git config --global user.name ${GITHUB_ACTOR}
       - name: Coverage check
@@ -147,7 +144,7 @@ jobs:
           pip install -r requirements.txt
           pip install -r dev_tools/conf/pip-list-dev-tools.txt
       - name: Pytest Windows
-        run: check/pytest --ignore=cirq/contrib --benchmark-skip --actually-quiet
+        run: check/pytest --actually-quiet
   macos:
     name: Pytest MacOS
     runs-on: macos-10.15
@@ -163,4 +160,4 @@ jobs:
           pip install -r dev_tools/conf/pip-list-dev-tools.txt
           git config --global user.name ${GITHUB_ACTOR}
       - name: Pytest check
-        run: check/pytest --ignore=cirq/contrib --benchmark-skip
+        run: check/pytest
