@@ -16,8 +16,6 @@ import openfermion
 from openfermion import random_diagonal_coulomb_hamiltonian
 import pytest
 
-
-
 from openfermioncirq import HamiltonianObjective
 
 
