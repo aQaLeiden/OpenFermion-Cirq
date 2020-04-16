@@ -12,11 +12,11 @@
 
 import numpy
 import cirq
+import openfermion
+from openfermion import random_diagonal_coulomb_hamiltonian
 import pytest
 
 
-import openfermion
-from openfermion import random_diagonal_coulomb_hamiltonian
 
 from openfermioncirq import HamiltonianObjective
 

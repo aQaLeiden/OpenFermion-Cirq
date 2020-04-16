@@ -15,9 +15,9 @@ from typing import cast, Tuple
 
 import cirq
 import numpy as np
-import pytest
 import scipy.linalg as la
 import sympy
+import pytest
 
 import openfermioncirq as ofc
 from openfermioncirq.gates.fermionic_simulation import (
