@@ -97,23 +97,6 @@ jobs:
           git config --global user.name ${GITHUB_ACTOR}
       - name: Pytest check
         run: check/pytest --actually-quiet
-  # Uncomment once docs are implemented
-  # build_docs:
-  #   name: Build docs
-  #   runs-on: ubuntu-16.04
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - uses: actions/setup-python@v1
-  #       with:
-  #         python-version: '3.6'
-  #         architecture: 'x64'
-  #     - name: Install requirements
-  #       run: |
-  #         pip install -r requirements.txt
-  #         pip install -r dev_tools/conf/pip-list-dev-tools.txt
-  #         sudo apt-get install pandoc
-  #     - name: Build docs
-  #       run: dev_tools/build-docs.sh
   coverage:
     name: Coverage check
     runs-on: ubuntu-16.04
