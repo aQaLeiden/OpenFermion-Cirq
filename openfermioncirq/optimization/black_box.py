@@ -188,9 +188,10 @@ class StatefulBlackBox(BlackBox):
         if self._time_of_last_query is not None:
             self.wait_times.append(time.time() - self._time_of_last_query)
 
+        new_x = numpy.array(x)
         val = self._evaluate(x)
         self.function_values.append(
-                (val, None, x if self._save_x_vals else None)
+                (val, None, new_x if self._save_x_vals else None)
         )
         self._time_of_last_query = time.time()
         return val
